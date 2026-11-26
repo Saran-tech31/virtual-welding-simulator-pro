@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Virtual Welding Simulator</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <h2>VWS <span>3D Simulator</span></h2>
+        <p>Interactive Virtual Welding Training</p>
+    </nav>
+
+    <section class="hero">
+        <h1>3D Virtual Welding Simulator</h1>
+        <p>Explore interactive joint configurations in a virtual workshop.</p>
+    </section>
+
+    <section class="simulator">
+        <h2>3D Welding Workshop</h2>
+
+        <div class="joint-panel">
+            <h3>Select Joint Type</h3>
+            <p>Choose a joint configuration for the simulation.</p>
+            <select id="jointType">
+                <option value="butt">Butt Joint</option>
+                <option value="tee">T-Joint</option>
+                <option value="lap">Lap Joint</option>
+                <option value="corner">Corner Joint</option>
+            </select>
+        </div>
+
+        <div class="angle-panel">
+            <div class="angle-heading">
+                <div>
+                    <h3>Joint Angle Selection</h3>
+                    <p>Adjust the angle between the metal plates.</p>
+                </div>
+                <div class="angle-display">
+                    <span id="angleValue">90°</span>
+                </div>
+            </div>
+
+            <input type="range" id="angleSlider"
+                min="0" max="180" step="1" value="90"
+                aria-label="Metal joint angle">
+
+            <div class="angle-scale">
+                <span>0°</span>
+                <span>45°</span>
+                <span>90°</span>
+                <span>135°</span>
+                <span>180°</span>
+            </div>
+            <p class="angle-note" id="angleNote">
+                Right-angle joint selected.
+            </p>
+        </div>
+
+        <div id="scene-container"></div>
+
+        <p id="status">3D Workshop Loading...</p>
+
+        <div class="practice-controls">
+            <button id="startPractice">Start Practice</button>
+            <button id="resetPractice">Reset</button>
+        </div>
+
+        <div class="results-panel">
+            <h3>Practice Results</h3>
+            <p>Score: <span id="score">0%</span></p>
+            <p>Accuracy: <span id="accuracy">0%</span></p>
+            <p id="practiceStatus">Ready to begin!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Virtual Welding Simulator | Educational Project</p>
+    </footer>
+
+    <script type="module" src="threeD.js"></script>
+</body>
+</html>
